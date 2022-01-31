@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Kan du gætte tallet mellem 0 og 20?</h1>
+    <input type="text" id="guess" />
+    <button id="send">Gæt</button>
+    <script>
+      document.getElementById("send").addEventListener("click", guessNumber);
+
+      let myRandom = Math.floor(Math.random() * 21);
+      let myCounter = 0;
+
+      function guessNumber() {
+        myCounter++;
+        let myGuess = document.getElementById("guess").value;
+
+        if (myGuess == myRandom) {
+          console.log(
+            `FLOT! Du har gættet det rigtige tal \"${myRandom}\". du har brugt ${myCounter} forsøg. Reload for at prøve igen`
+          );
+        } else if (myGuess < myRandom && myGuess > 0) {
+          console.log("Prøv igen med et større tal");
+        } else if (myGuess > myRandom && myGuess < 20) {
+          console.log("Prøv igen med et mindre tal");
+        } else if (myGuess < 0 || myGuess > 20) {
+          console.log(`Tallet er mellem 0 og 20, og det er ${myGuess} ikke`);
+        } else {
+          console.log(`\"${myGuess}\" er ikke et tal`);
+        }
+      }
+    </script>
+  </body>
+</html>
