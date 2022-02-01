@@ -49,5 +49,27 @@
     <footer>
       <h1>this is the footer</h1>
     </footer>
+    <script>
+      const headertitle = document.querySelector("header h1");
+      console.log(headertitle);
+      const article1 = document.querySelector("article:nth-child(1)");
+      console.log(article1);
+      const article1tekst = document.querySelector("article:nth-child(1) p");
+      console.log(article1tekst);
+      const article2 = document.querySelector("article:nth-child(2)");
+      console.log(article2);
+      const article2tekst = document.querySelector("article:nth-child(2) p");
+      console.log(article2tekst);
+      const footertitle = document.querySelector("footer h1");
+      console.log(footertitle);
+      const article1img = document.querySelector("article:nth-child(1) img");
+      console.log(article1img);
+
+      headertitle.innerHTML = "hallo";
+      article1tekst.innerHTML = "juhuu";
+      article2tekst.textContent = "wlalalalla";
+
+      article1img.src = "https://placeimg.com/640/480/animals";
+    </script>
   </body>
 </html>
