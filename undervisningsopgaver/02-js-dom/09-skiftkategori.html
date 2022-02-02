@@ -35,7 +35,7 @@
           </p>
         </article>
         <article>
-          <img src="https://placeimg.com/640/480/any" />
+          <img id="billede" src="https://placeimg.com/640/480/any" />
           <h3>article 2</h3>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
@@ -49,6 +49,7 @@
     <footer>
       <h1>this is the footer</h1>
     </footer>
+
     <script>
       document.addEventListener("DOMContentLoaded", start);
       function start() {
@@ -68,6 +69,8 @@
         console.log(footertitle);
         const article1img = document.querySelector("article:nth-child(1) img");
         console.log(article1img);
+        const article2img = document.querySelector("article:nth-child(2) img");
+        console.log(article2img);
 
         headertitle.innerHTML = "hallo";
         article1tekst.innerHTML = "juhuu";
@@ -105,7 +108,6 @@
         newArticle.appendChild(tekst);
 
         //click event
-
         article1img.addEventListener("click", skiftBillede);
 
         function skiftBillede() {
@@ -113,10 +115,22 @@
           let tal = Math.round(Math.random() * 10);
           article1img.src = "https://placeimg.com/640/480/people" + tal;
         }
-        // article1img.addEventListener("click", doSomething);
-        // function doSomething() {
-        //   article1img.src = "billeder/turtle.png";
-        // }
+      }
+
+      const kategorier = ["animals", "arch", "people", "nature", "tech"];
+
+      billede.addEventListener("click", skift);
+
+      function skift() {
+        const billedTal = Math.round(Math.random() * 10);
+        const kategoriIndex = Math.round(Math.random() * 4);
+        billede.src =
+          "https://placeimg.com/600/400/" +
+          kategorier[kategoriIndex] +
+          "?t=" +
+          billedTal;
+        billede.alt = kategorier[kategoriIndex] + " nr " + billedTal;
+        cap.textContent = kategorier[kategoriIndex] + " nr " + billedTal;
       }
     </script>
   </body>
