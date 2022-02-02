@@ -78,7 +78,7 @@
 
       let billede = document.createElement("img");
       newArticle.appendChild(billede);
-      billede.src = "https://placeimg.com/640/480/animals";
+      billede.src = "https://placeimg.com/640/480/nature";
 
       //ny overskrift
       let overskrift = document.createElement("h3");
@@ -89,11 +89,12 @@
 
       mainSection.appendChild(newArticle);
 
-      //tekst
+      //tekst paragraf
 
       let tekst = document.createElement("p");
-      //tekst til ny overskrift
-      let teksttext = document.createTextNode("Hey en ny artikel, what?!");
+      let teksttext = document.createTextNode(
+        "det her er en mega sej paragraf"
+      );
       tekst.appendChild(teksttext);
       newArticle.appendChild(tekst);
     </script>
