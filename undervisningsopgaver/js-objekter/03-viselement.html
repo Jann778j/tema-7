@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article>
+      <h3></h3>
+      <img src="" alt="" />
+      <p></p>
+      <p></p>
+    </article>
+    <script>
+      let dyr = {
+        navn: "gris",
+        type: "pattedyr",
+        billede: "http://mabe-kea.dk/E19/pics/pig.png",
+        levested: "farm",
+      };
+
+      let elm = document.querySelector("article");
+
+      console.log(dyr);
+
+      //   elm.innerHTML = `<p>navn: ${dyr.navn} type: ${dyr.type} levested: ${dyr.levested}</p> <img src=${dyr.billede}>`;
+
+      elm.querySelector("img").src = dyr.billede;
+      elm.querySelector("h3").textContent = dyr.navn;
+      elm.querySelector("p").textContent = "type: " + dyr.type;
+      elm.querySelector("p + p").textContent = "lever i: " + dyr.levested;
+    </script>
+  </body>
+</html>
