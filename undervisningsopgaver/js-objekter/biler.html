@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 10px;
+      }
+      article {
+        border: 1px solid #333;
+        padding: 10px;
+      }
+
+      img {
+        max-width: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="data-container">
+      <template>
+        <article class="bil">
+          <h1></h1>
+          <h2></h2>
+          <p class="motor"></p>
+          <p class="km"></p>
+          <p class="udstyr"></p>
+        </article>
+      </template>
+    </section>
+    <script>
+      const file = "biler.json";
+
+      async function getData(file) {
+        const result = await fetch(file);
+        const json = await result.json();
+        show(json);
+      }
+
+      function show(json) {
+        const container = document.querySelector(".data-container");
+        const myTemplate = document.querySelector("template");
+        json.forEach((bil) => {
+          let templateClone = myTemplate.cloneNode(true).content;
+
+          templateClone.querySelector("h1").textContent = `mærke: ${bil.mærke}`;
+          templateClone.querySelector("h2").textContent = `model: ${bil.model}`;
+          templateClone.querySelector("p").textContent = `motor: ${bil.motor}`;
+          templateClone.querySelector("p + p").textContent = `km: ${bil.km}`;
+          templateClone.querySelector(
+            "p + p + p"
+          ).textContent = `udstyr: ${bil.udstyr}`;
+          container.appendChild(templateClone);
+        });
+      }
+
+      getData(file);
+    </script>
+  </body>
+</html>
